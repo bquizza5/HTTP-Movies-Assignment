@@ -26,7 +26,7 @@ const MovieCard = props => {
       ))}
       </Link>
       <Link to={`/update-movie/${props.movie.id}`}><button>Edit</button></Link>
-      <button onClick={() => props.deleteMovie(props.movie.id, props.state, props.setState)}>Delete</button>
+      <button onClick={() => props.deleteMovie(props.movie.id)}>Delete</button>
     </div>
   );
 };

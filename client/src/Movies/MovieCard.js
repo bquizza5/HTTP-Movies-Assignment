@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
+
+  
+
   return (
     <div className="movie-card">
       <Link to={`/movies/${props.movie.id}`}>
@@ -22,6 +26,7 @@ const MovieCard = props => {
       ))}
       </Link>
       <Link to={`/update-movie/${props.movie.id}`}><button>Edit</button></Link>
+      <button onClick={() => props.deleteMovie(props.movie.id, props.state, props.setState)}>Delete</button>
     </div>
   );
 };

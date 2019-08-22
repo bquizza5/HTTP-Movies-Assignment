@@ -26,7 +26,10 @@ const UpdateForm = (props) => {
         axios
             .put(`http://localhost:5000/api/movies/${props.match.params.id}`, updatedMovie)
             .then(res => {console.log(res)})
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
+        
+        
+        // props.history.push('/')
       }
 
       const changeHandler = (e) => {

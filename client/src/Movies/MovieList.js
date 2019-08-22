@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, autoBind } from "react";
 import axios from "axios";
 
 import MovieCard from "./MovieCard";
@@ -8,6 +8,16 @@ export default class MovieList extends Component {
     this.state = {
       movies: []
     };
+  }
+
+  deleteMovie(id) {
+    axios
+      .delete(`http://localhost:5000/api/movies/${id}`)
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+      console.log(this.state)
+    // this.setState({movies: this.state.movies.reduce(movie => movie.id !== id)})
+    
   }
 
   componentDidMount() {
@@ -21,15 +31,15 @@ export default class MovieList extends Component {
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
-          <MovieDetails key={movie.id} movie={movie} />
+          <MovieDetails deleteMovie={this.deleteMovie} key={movie.id} movie={movie} />
         ))}
       </div>
     );
   }
 }
 
-function MovieDetails({ movie }) {
+function MovieDetails(props) {
   return (
-      <MovieCard movie={movie} />
+      <MovieCard movie={props.movie} deleteMovie={props.deleteMovie} />
   );
 }

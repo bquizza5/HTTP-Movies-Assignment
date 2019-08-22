@@ -49,6 +49,13 @@ let movies = [
     director: "George P. Cosmatos",
     metascore: 89,
     stars: ["Kurt Russell", "Bill Paxton", "Sam Elliot"]
+  },
+  {
+    id: 6,
+    title: "Test",
+    director: "George P. Cosmatos",
+    metascore: 89,
+    stars: ["Kurt Russell", "Bill Paxton", "Sam Elliot"]
   }
 ];
 
